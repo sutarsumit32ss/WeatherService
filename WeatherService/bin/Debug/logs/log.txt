@@ -1,0 +1,7 @@
+2021-10-31 17:30:16.0332|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-10-31 17:30:16.0796|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-10-31 17:30:16.0796|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\sutar\source\repos\WeatherService\WeatherService
+2021-10-31 17:30:51.1341|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2021-10-31 17:30:51.1576|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2021-10-31 17:30:51.1576|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\sutar\source\repos\WeatherService\WeatherService
+2021-10-31 17:30:54.9672|ERROR|WeatherService.Controllers.WeatherForecastController|sumit
