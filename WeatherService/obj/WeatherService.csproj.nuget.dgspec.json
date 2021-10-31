@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sutar\\source\\repos\\WeatherService\\WeatherService\\WeatherService.csproj": {}
+    "C:\\Users\\sutar\\source\\WeatherService\\WeatherService\\WeatherService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sutar\\source\\repos\\WeatherService\\WeatherService\\WeatherService.csproj": {
+    "C:\\Users\\sutar\\source\\WeatherService\\WeatherService\\WeatherService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sutar\\source\\repos\\WeatherService\\WeatherService\\WeatherService.csproj",
+        "projectUniqueName": "C:\\Users\\sutar\\source\\WeatherService\\WeatherService\\WeatherService.csproj",
         "projectName": "WeatherService",
-        "projectPath": "C:\\Users\\sutar\\source\\repos\\WeatherService\\WeatherService\\WeatherService.csproj",
+        "projectPath": "C:\\Users\\sutar\\source\\WeatherService\\WeatherService\\WeatherService.csproj",
         "packagesPath": "C:\\Users\\sutar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sutar\\source\\repos\\WeatherService\\WeatherService\\obj\\",
+        "outputPath": "C:\\Users\\sutar\\source\\WeatherService\\WeatherService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sutar\\AppData\\Roaming\\NuGet\\NuGet.Config",
