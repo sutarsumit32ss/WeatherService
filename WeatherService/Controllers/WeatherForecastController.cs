@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WeatherService.Business;
 using WeatherService.Models;
 using WeatherService.Repository;
 
@@ -14,11 +15,11 @@ namespace WeatherService.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly IWeatherAPIHelperRepo _weatherAPIHelperRepo;
+        private readonly IWeatherForecastBusiness _weatherForecastBusiness;
         private readonly ILogger<WeatherForecastController> _logger;
-        public WeatherForecastController(IWeatherAPIHelperRepo weatherAPIHelperRepo, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IWeatherForecastBusiness weatherForecastBusiness, ILogger<WeatherForecastController> logger)
         {
-            _weatherAPIHelperRepo = weatherAPIHelperRepo;
+            _weatherForecastBusiness = weatherForecastBusiness;
             _logger = logger;
         }
 
@@ -37,27 +38,7 @@ namespace WeatherService.Controllers
 
             try
             {
-                List<Task<OpenWeatherResponse>> listOfTasks = new List<Task<OpenWeatherResponse>>();
-                cityList.ToList().ForEach(city =>
-                {
-                    listOfTasks.Add(_weatherAPIHelperRepo.GetWeatherDataBasedIdAsync(city));
-
-                });
-
-                var cityResponseListResult = await Task.WhenAll(listOfTasks);
-                var cityResponseList = new List<CityResponse>();
-                cityResponseListResult.ToList().ForEach(result =>
-                {
-                    cityResponseList.Add(new CityResponse()
-                    {
-                        Success = string.IsNullOrEmpty(result.ErrorMessage) ? true : false,
-                        Temp = result.Main == null ? "" : result.Main.Temp,
-                        Summary = result.Weather == null ? "" : string.Join(",", result.Weather.Select(x => x.Main)),
-                        City = result.Name,
-                        CityId = result.Id,
-                        ErrorMessage = result.ErrorMessage,
-                    });
-                });
+               var cityResponseList = await _weatherForecastBusiness.GetWeatherDataBasedId(cityList);
                 return Ok(new
                 {
                     APISuccess = true,
@@ -66,7 +47,6 @@ namespace WeatherService.Controllers
             }
             catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, ex.Message, null);
                 return BadRequest(new 
                 {
                     APISuccess = false,

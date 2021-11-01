@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using WeatherService.Business;
 using WeatherService.Models;
 using WeatherService.Repository;
 
@@ -23,7 +24,8 @@ namespace WeatherService
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppOptions>(options => Configuration.Bind(options));
-            services.AddScoped<IWeatherAPIHelperRepo, WeatherAPIHelperRepo>();
+            services.AddScoped<IWeatherForecastBusiness, WeatherForecastBusiness>();
+            services.AddScoped<IWeatherAPIHelperRepo, WeatherAPIHelperRepo>(); 
             services.AddControllers();
             services.AddSwaggerGen();
         }

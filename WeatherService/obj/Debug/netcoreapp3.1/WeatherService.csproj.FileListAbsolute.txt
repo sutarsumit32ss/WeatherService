@@ -45,7 +45,6 @@ C:\Users\sutar\source\WeatherService\WeatherService\bin\Debug\netcoreapp3.1\NLog
 C:\Users\sutar\source\WeatherService\WeatherService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\sutar\source\WeatherService\WeatherService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\sutar\source\WeatherService\WeatherService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\sutar\source\WeatherService\WeatherService\obj\Debug\netcoreapp3.1\WeatherService.csprojAssemblyReference.cache
 C:\Users\sutar\source\WeatherService\WeatherService\obj\Debug\netcoreapp3.1\WeatherService.AssemblyInfoInputs.cache
 C:\Users\sutar\source\WeatherService\WeatherService\obj\Debug\netcoreapp3.1\WeatherService.AssemblyInfo.cs
 C:\Users\sutar\source\WeatherService\WeatherService\obj\Debug\netcoreapp3.1\WeatherService.csproj.CoreCompileInputs.cache
