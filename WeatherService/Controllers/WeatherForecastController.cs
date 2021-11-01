@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WeatherService.Models;
+using WeatherService.Repository;
 
 namespace WeatherService.Controllers
 {
@@ -13,13 +14,12 @@ namespace WeatherService.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly IOptions<AppOptions> _options;
+        private readonly IWeatherAPIHelperRepo _weatherAPIHelperRepo;
         private readonly ILogger<WeatherForecastController> _logger;
-        public WeatherForecastController(IOptions<AppOptions> options, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IWeatherAPIHelperRepo weatherAPIHelperRepo, ILogger<WeatherForecastController> logger)
         {
-            _options = options;
+            _weatherAPIHelperRepo = weatherAPIHelperRepo;
             _logger = logger;
-            WeatherAPIHelper.WeatherKey = _options.Value.OpenWeatherApiKey;
         }
 
 
@@ -40,7 +40,7 @@ namespace WeatherService.Controllers
                 List<Task<OpenWeatherResponse>> listOfTasks = new List<Task<OpenWeatherResponse>>();
                 cityList.ToList().ForEach(city =>
                 {
-                    listOfTasks.Add(WeatherAPIHelper.GetWeatherDataBasedIdAsync(city));
+                    listOfTasks.Add(_weatherAPIHelperRepo.GetWeatherDataBasedIdAsync(city));
 
                 });
 

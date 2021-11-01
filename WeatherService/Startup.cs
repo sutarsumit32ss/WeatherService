@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using WeatherService.Models;
+using WeatherService.Repository;
 
 namespace WeatherService
 {
@@ -22,6 +23,7 @@ namespace WeatherService
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppOptions>(options => Configuration.Bind(options));
+            services.AddScoped<IWeatherAPIHelperRepo, WeatherAPIHelperRepo>();
             services.AddControllers();
             services.AddSwaggerGen();
         }
